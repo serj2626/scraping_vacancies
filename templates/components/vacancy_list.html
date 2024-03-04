@@ -1,0 +1,29 @@
+
+{% for vacancy in vacancys %}
+
+
+<div class="card my-3">
+    <div class="card-header text-center">
+        {{ vacancy.title }}
+    </div>
+    <div class="card-title">
+        <h5 class="ms-3 mt-2">{{vacancy.company }}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title my-2">
+            <button type="button" class="btn btn-outline-danger disabled">{{vacancy.language.name }}</button>
+        </h5>
+        <p class="card-text">{{ vacancy.description | truncatechars:700 }}.</p>
+        <div class="d-flex justify-content-between">
+            <a target="_blank" href="{{ vacancy.url }}" class="btn btn-primary">Смотреть вакансию</a>
+            <p>{{ vacancy.city.name }} | {{ vacancy.timestamp|date:"d-m-Y" }}</p>
+
+        </div>
+
+    </div>
+</div>
+{% empty %}
+<div class="alert alert-warning">
+    <p class="mb-0">К сожалению, вакансии отсутствуют!</p>
+</div>
+{% endfor %}

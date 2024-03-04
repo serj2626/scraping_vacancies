@@ -4,6 +4,8 @@ from .forms import VacancyForm
 from .service import get_filter_vacancys
 from .models import Vacancy
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class HomeView(View):
 
@@ -19,4 +21,3 @@ class HomeView(View):
             'form': form
         }
         return render(request=request, template_name="scraping/home.html", context=context)
-
