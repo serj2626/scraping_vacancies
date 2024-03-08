@@ -13,11 +13,15 @@
         <div class="card-header mb-3">
             <h4 class="text-center">Настройки профиля</h4>
         </div>
-        <form  method="post">
+        <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <div class="d-grid gap-2">
+            <!-- <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div> -->
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary py-2 px-2 me-2">Сохранить</button>
+                <a class="btn btn-danger py-2 px-4 " href="{{ request.META.HTTP_REFERER }}">Выйти</a>
             </div>
         </form>
     </div>

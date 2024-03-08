@@ -1,10 +1,11 @@
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+load_dotenv()
 SECRET_KEY = 'django-insecure-mc1(z^7$lg&#lj_cdz6=u3yq529^e*n6-h_v$p(#7qzc&*-z$5'
 
 
@@ -104,13 +105,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
-
-
-
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -121,3 +118,17 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 AUTH_USER_MODEL = 'accounts.User'
+
+
+# EMAIL_BACKEND for yandex
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = True
+
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
