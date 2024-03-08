@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     'scraping.apps.ScrapingConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
 ]
 
 MIDDLEWARE = [

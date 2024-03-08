@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class=" w-50 card p-3 rounded-3 shadow-lg mx-auto">
+    <div class="card-header">
+        <h4 class="text-center">Обратная связь</h4>
+    </div>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <button class="btn btn-outline-primary py-2 px-3">Отправить</button>
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock main %}

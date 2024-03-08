@@ -1,5 +1,6 @@
 from .models import Vacancy
 from django.db.models import Q
+from django.core.mail import EmailMultiAlternatives
 
 
 def get_filter_vacancys(city, language):

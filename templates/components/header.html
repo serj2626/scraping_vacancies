@@ -29,6 +29,13 @@
         <li>
           <a
             class="dropdown-item"
+            href="{% url 'contacts:feedback' %}"
+            >Форма обратной связи</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
             href="{% url 'accounts:profile' request.user.id %}"
             >Избранное</a
           >

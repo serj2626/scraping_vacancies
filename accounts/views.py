@@ -62,3 +62,10 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     def get_success_url(self):
         print(self.kwargs)
         return reverse('accounts:profile', kwargs={'pk': self.kwargs['pk']})
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['feedback_list'] =  self.get_object().user_feedback.all()
+        return context
+    
